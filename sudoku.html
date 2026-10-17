@@ -352,9 +352,6 @@
 </div>
 
 <script>
-/* =========================================================
-   TEMAS VISUALES (10)
-   ========================================================= */
 const THEMES = [
   {
     id:'space', name:'Universo Profundo',
@@ -465,9 +462,6 @@ function initThemeSelector(){
   sel.addEventListener('change', ()=> applyTheme(sel.value));
 }
 
-/* =========================================================
-   GENERADOR DE SUDOKU
-   ========================================================= */
 function emptyGrid(){ return Array.from({length:9}, ()=> Array(9).fill(0)); }
 
 function isValidPlacement(grid, row, col, num){
@@ -557,9 +551,6 @@ function generatePuzzle(difficulty){
   return { puzzle, solution };
 }
 
-/* =========================================================
-   ESTADO DEL JUEGO
-   ========================================================= */
 let state = {
   puzzle: null,
   solution: null,
@@ -623,9 +614,6 @@ function updateProgress(){
   state.filledCount = filled;
 }
 
-/* =========================================================
-   RENDER TABLERO
-   ========================================================= */
 function renderBoard(){
   const boardEl = document.getElementById('board');
   boardEl.innerHTML = '';
@@ -683,9 +671,6 @@ function selectCell(r,c){
   highlightSelection();
 }
 
-/* =========================================================
-   INPUT DE NÚMEROS
-   ========================================================= */
 function placeNumber(num){
   if(!state.selected) return;
   const [r,c] = state.selected;
@@ -769,9 +754,6 @@ function checkWin(){
   return true;
 }
 
-/* =========================================================
-   VICTORIA / RACHA / ESTADÍSTICAS
-   ========================================================= */
 function onWin(){
   stopTimer();
   const finalTime = state.seconds;
@@ -908,9 +890,6 @@ function openStatsModal(){
   document.getElementById('statsModal').classList.add('show');
 }
 
-/* =========================================================
-   NÚMPAD Y CONTROLES
-   ========================================================= */
 function buildNumpad(){
   const pad = document.getElementById('numpad');
   pad.innerHTML = '';
@@ -970,9 +949,6 @@ document.getElementById('diffSelect').addEventListener('change', (e)=>{
   newGame(e.target.value);
 });
 
-/* =========================================================
-   INIT
-   ========================================================= */
 initThemeSelector();
 buildNumpad();
 updateStreakUI();
